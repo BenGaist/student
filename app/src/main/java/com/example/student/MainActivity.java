@@ -14,6 +14,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -61,17 +62,22 @@ public class MainActivity extends AppCompatActivity {
 
                 for(int i = 0;i<studentLst.size();i++)
                 {
-                    if(getStudent.toString().equals(studentLst.get(i).name))
+                    String a = getStudent.getText().toString();
+                    String b = studentLst.get(i).name;
+                    if(a.equals(b))
                     {
+                        Toast.makeText(MainActivity.this, "put",
+                                Toast.LENGTH_LONG).show();
                       studentTxt.setText(studentLst.get(i).name+" : "+studentLst.get(i).grade);
                     }
 
-                   /* else if(i == studentLst.size()-1)
+                    else if(i == studentLst.size()-1)
                     {
-                        Toast.makeText(MainActivity(), "did not find",
+                        Toast.makeText(MainActivity.this, "did not find",
                                 Toast.LENGTH_LONG).show();
                     }
-                    */
+
+
 
                 }
 
@@ -92,6 +98,8 @@ public class MainActivity extends AppCompatActivity {
     {
         Student s = new Student(getName.getText().toString(),Integer.parseInt(getGrade.getText().toString()));
         studentLst.add(s);
+        Toast.makeText(MainActivity.this, "saved",
+                Toast.LENGTH_LONG).show();
     }
 
 
